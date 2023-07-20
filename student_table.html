@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <title>React App</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      let students = [];
+      let id = 1;
+      let inputRefName = React.createRef();
+      let inputRefMark = React.createRef();
+
+      function appendData(event) {
+        event.preventDefault();
+        let student = {
+          'id': id++,
+          'name': inputRefName.current.value,
+          'marks': inputRefMark.current.value
+        };
+        students.push(student);
+        rootElement.render(<App />);
+      }
+
+      const Form = () => (
+        <>
+        <form>
+          <input placeholder="Name" ref={inputRefName} />
+          <input placeholder="Marks" ref={inputRefMark} />
+          <button onClick={appendData}>Submit</button>
+          </form>
+        </>
+      );
+
+      const Result = () => (
+        <>
+          <table border="1px">
+            <thead>
+            <tr>
+              <th>Student's Name</th>
+              <th>Marks</th>
+             </tr>
+            </thead>
+            <tbody>
+              {/* Fix the map function with curly braces */}
+              {students.map((student) => (
+                <tr key={student.id}>
+                  <td>{student.name}</td>
+                  <td>{student.marks}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </>
+      );
+
+      const App = () => (
+        <>
+          <Form />
+          <Result />
+        </>
+      );
+
+      const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+      rootElement.render(<App />);
+    </script>
+  </body>
+</html>
