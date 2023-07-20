@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>React App</title>
+
+    <style>
+        .App {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+        }
+
+        form {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        form div {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button {
+            width: 120px;
+            padding-block: 5px;
+            cursor: pointer;
+        }
+
+        th,
+        td {
+            padding: 10px;
+        }
+
+        input {
+            padding: 5px;
+            font-size: 1.1rem;
+        }
+
+        .served {
+            background-color: red;
+        }
+
+        .dining {
+            background-color: lime;
+            cursor: pointer;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        let nameRef = React.createRef();
+        let seatRef = React.createRef();
+        let phoneRef = React.createRef();
+
+        let customers = [];
+        const capacity = 25;
+        let seatsLeft = 25;
+
+        // Create form submit handler here
+        function submitHandler(event) {
+
+            event.preventDefault();
+
+            if (nameRef.current != null && seatRef.current != null && phoneRef.current != null) {
+
+                if (seatRef.current.value > seatsLeft) {
+                    alert("Guest count exceeds capacity");
+                    return;
+                }
+
+                seatsLeft -= seatRef.current.value;
+
+
+                let customer = {
+                    'name': nameRef.current.value,
+                    'number': phoneRef.current.value,
+                    'seats': seatRef.current.value,
+                    'checkInTime': getCurrentDate(),
+                    'checkOutTime': '-',
+                    'status': 'Click To Checkout'
+                }
+                nameRef.current.value = "";
+                seatRef.current.value = "";
+                phoneRef.current.value = "";
+                customers.unshift(customer);
+
+                rootElement.render(<App />);
+            }
+
+        }
+
+        function getCurrentDate() {
+            const currentDate = new Date();
+
+            const options = {
+                day: '2-digit',   // '2-digit' will display the day as two digits (e.g., 01, 02, ..., 31)
+                month: '2-digit', // '2-digit' will display the month as two digits (e.g., 01, 02, ..., 12)
+                year: 'numeric'   // 'numeric' will display the year as four digits (e.g., 2023)
+            };
+
+            const formattedDate = currentDate.toLocaleDateString('en-GB', options);
+
+            return formattedDate;
+        }
+
+        function handleCheckout(index) {
+
+            if (customers[index].status != 'Served') {
+                customers[index].checkOutTime = getCurrentDate(),
+                    customers[index].status = 'Served';
+                    seatsLeft += parseInt(customers[index].seats);
+
+                rootElement.render(<App />);
+            }
+
+        }
+
+        function handleDelete(index) {
+
+            if (customers[index].status != 'Served')
+             seatsLeft += parseInt(customers[index].seats);
+            customers.splice(index, 1);
+            rootElement.render(<App />);
+        }
+
+        function Form() {
+
+            return (
+                <form action="">
+                    <input type="text" placeholder="name" ref={nameRef} />
+                    <input type="number" placeholder="Enter Require Seats" ref={seatRef} />
+                    <input type="number" placeholder="Phone Number" ref={phoneRef} />
+                    <button onClick={submitHandler}>Add Entry</button>
+                </form>
+            )
+        }
+        const App = () => (
+            <div className="App" style={{ textAlign: "center" }}>
+                <div>
+                    <h2>Total Capacity:{capacity} </h2>
+                    <h2>Seats Left:{seatsLeft} </h2>
+                </div>
+
+                {/* Create a form here */}
+                <Form />
+
+                {/* Complete table to show records of customers */}
+                <table border="1px" style={{ margin: "auto" }}>
+                    <thead>
+                        <tr>
+                            <th>
+                                Count
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Phone
+                            </th>
+                            <th>
+                                Check In
+                            </th>
+                            <th>
+                                Check Out
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th>
+                                Remove Entry
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {customers.map((customer, i) => (
+                            <tr key={i}>
+                                <td>
+                                    {customer.seats}
+                                </td>
+                                <td>
+                                    {customer.name}
+                                </td>
+                                <td>
+                                    {customer.number}
+                                </td>
+                                <td>
+                                    {customer.checkInTime}
+                                </td>
+                                <td>
+                                    {customer.checkOutTime}
+                                </td>
+                                <td onClick={() => { handleCheckout(i) }}>
+                                    {customer.status}
+                                </td>
+                                <td onClick={() => { handleDelete(i) }}>
+                                    Delete
+                                </td>
+                            </tr>
+                        ))}
+
+                    </tbody>
+                </table>
+            </div>
+        );
+
+        const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+        rootElement.render(<App />);
+    </script>
+
+</body>
+
+</html>
