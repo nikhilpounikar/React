@@ -1,11 +1,8 @@
-import './App.css';
-
+import MovieCard from './MovieCard';
 function App() {
   return (
       <>
-      <h1>
-        Hello New react project
-      </h1>
+      <MovieCard/>
       </>
   );
 }
