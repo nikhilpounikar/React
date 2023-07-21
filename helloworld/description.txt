@@ -1,1 +1,2 @@
 Compontent has 2 type Class and Function.
+Exports are of two type default and named
