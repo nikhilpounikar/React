@@ -2,7 +2,20 @@ import './index.css';
 import { Component } from "react";
 
 export default class MovieCard extends Component {
+
+  constructor(){
+      super();
+      this.state = {
+        title:"Avengers",
+        plot:"The best movie has ever created by marvel studies Starring Tony Stark",
+        price:19.99,
+        ratings:9.8,
+        stars:0,
+      }
+  }
+  
   render() {
+    const {title,plot, price,ratings,stars} =  this.state;
     return (
       <>
         <div className="main">
