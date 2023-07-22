@@ -18,10 +18,13 @@ export default class MovieCard extends Component {
                 <div className="rating">9.8</div>
                 <div className="star-dis">
                     //decrease image goes here
+                    <img alt="decrease" src="https://cdn-icons-png.flaticon.com/128/2801/2801932.png" className="str-btn" />
                     // Star images goes here
+                    <img alt="stars" src="https://cdn-icons-png.flaticon.com/128/2107/2107957.png" className="stars" />
                     // increase images goes here
+                    <img alt="increase" src="https://cdn-icons-png.flaticon.com/128/1828/1828925.png" className="str-btn" />
                     //count goes here
-                    <span>0</span>
+                    <span className="starCount">0</span>
                 </div>
                 <button className="favourite-btn">Like</button>
                 <button className="cart-btn">Add to cart</button>
