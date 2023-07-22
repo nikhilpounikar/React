@@ -16,7 +16,13 @@ export default class MovieCard extends Component {
               <div className="price">$ 19.99</div>
               <div className="footer">
                 <div className="rating">9.8</div>
-                <div className="stars">*****</div>
+                <div className="star-dis">
+                    //decrease image goes here
+                    // Star images goes here
+                    // increase images goes here
+                    //count goes here
+                    <span>0</span>
+                </div>
                 <button className="favourite-btn">Like</button>
                 <button className="cart-btn">Add to cart</button>
               </div>
