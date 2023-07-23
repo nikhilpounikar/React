@@ -11,6 +11,7 @@ export default class MovieCard extends Component {
         price:19.99,
         ratings:9.8,
         stars:0,
+        fav:false;
       }
   }
 
@@ -35,9 +36,15 @@ export default class MovieCard extends Component {
     this.setState((prevState) => {
       stars: prevState.stars + 0.5,
     });
+
+    handleFavorite = ()=>{
+      this.setState({
+        fav: !this.state.fav
+      })
+    }
   }
   render() {
-    const {title,plot, price,ratings,stars} =  this.state;
+    const {title,plot, price,ratings,stars,fav} =  this.state;
     return (
       <>
         <div className="main">
@@ -61,7 +68,7 @@ export default class MovieCard extends Component {
                     //count goes here
                     <span className="starCount">{stars}</span>
                 </div>
-                <button className="favourite-btn">Like</button>
+                <button className={fav?'un-favorite-btn':'favorite-btn'} onClick={this.handleFavorite}>{fav?'UnLike':'Like'}</button>
                 <button className="cart-btn">Add to cart</button>
               </div>
             </div>
