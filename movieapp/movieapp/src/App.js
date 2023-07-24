@@ -1,8 +1,8 @@
-import MovieCard from './MovieCard';
+import MovieList from './MovieList';
 function App() {
   return (
       <>
-      <MovieCard/>
+      <MovieList/>
       </>
   );
 }

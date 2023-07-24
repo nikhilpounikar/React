@@ -47,14 +47,14 @@ export default class MovieCard extends Component {
   };
 
   render() {
-    const { title, plot, price, ratings, stars, fav, cartState } = this.state;
+    const { title, plot, price, ratings, stars, isInCart,fav,poster } = this.props.movies;
     return (
       <>
         <div className="main">
           <div className="movie-card">
             <div className="left">
               <img
-                src="	https://cdn.marvel.com/content/1x/themarvels_lob_crd_04.jpg"
+                src={poster}
                 alt=""
               ></img>
             </div>
@@ -95,10 +95,10 @@ export default class MovieCard extends Component {
                   {fav ? "UnLike" : "Like"}
                 </button>
                 <button
-                  className={cartState ? "unfavourite-btn" : "cart-btn"}
+                  className={isInCart ? "unfavourite-btn" : "cart-btn"}
                   onClick={this.handleAddCart}
                 >
-                  {cartState ? "Remove From Cart" : "Add To Cart"}
+                  {isInCart ? "Remove From Cart" : "Add To Cart"}
                 </button>
                 {/* <button className="cart-btn">Add to cart</button> */}
               </div>
