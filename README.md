@@ -13,4 +13,14 @@ key ==> attribute try to make use of it
 
 
 Modules problems pending
-
+##########
+Components
+State
+Props
+JSX
+Virtual DOM
+Lifecycle Methods
+React Hooks
+Conditional Rendering
+Forms and Controlled Components
+Event Handling
