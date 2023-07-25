@@ -1,15 +1,16 @@
 # React
 First Commit
 
-===> use reduce() method if want to perform aggreagtion
+===> Use reduce() method if you want to perform aggregation
 ===> use map() to iterate over array
-===>use filter() to filter out certain element
+===> Use filter() to filter out a certain element
 
 key ==> attribute try to make use of it
 
-===> State is used to managed the dynamicity of view and html in react, state can be changed by this.setState() function.
+===> State is used to manage the dynamicity of view and html in react, state can be changed by this.setState() function.
 
-===> Props is used to pass data from parent conponent to child conponent even sibling cannot be passed with value and child cannot pass value to parent using props. (It cannot be modified in child component)
+===> Props are used to pass data from parent component to child components even sibling cannot be passed with value and child cannot pass value to parent using props. (It cannot be modified in the child component)
 
 
 Modules problems pending
+
