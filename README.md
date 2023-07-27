@@ -11,7 +11,7 @@ key ==> attribute try to make use of it
 
 ===> Props are used to pass data from parent component to child components even sibling cannot be passed with value and child cannot pass value to parent using props. (It cannot be modified in the child component)
 
-Problems done ===> (User Profile, Mood Predictor, React Props, Props in functional component)
+Problems done ===> (NFTium, User Profile, Mood Predictor, React Props, Props in functional component)
 Modules problems pending
 ##########
 Components
