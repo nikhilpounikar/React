@@ -7,11 +7,11 @@ First Commit
 
 key ==> attribute try to make use of it
 
-===> State is used to manage the dynamicity of view and html in react, state can be changed by this.setState() function.
+===> State is used to manage the dynamicity of view and HTML in react, state can be changed by this.setState() function.
 
 ===> Props are used to pass data from parent component to child components even sibling cannot be passed with value and child cannot pass value to parent using props. (It cannot be modified in the child component)
 
-Problems done ===> (NFTium, User Profile, Mood Predictor, React Props, Props in functional component)
+Problems did ===> (NFTium, User Profile, Mood Predictor, React Props, Props in functional component)
 Modules problems pending
 ##########
 Components
