@@ -9,7 +9,7 @@ class MovieCard extends React.Component {
 
     return (
       //Movie Card
-      <div className="movie-card">
+      <div className="movie-card" key={movies.id}>
         {/**Left section of Movie Card */}
         <div className="left">
           <img alt="poster" src={poster} />
