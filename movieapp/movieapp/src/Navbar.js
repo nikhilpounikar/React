@@ -5,7 +5,16 @@ class Navbar extends Component{
     render(){
         return (
             <>
-            <h1>Its Navbar</h1>
+                <div>
+                   <div>
+                    Title
+                   </div>
+                   <div>
+                    <img alt="cart_icon"/>
+                        <span>0</span>
+                    
+                    </div>
+                </div>
             </>
         )
     }
