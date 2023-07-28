@@ -1,11 +1,13 @@
 import { Component } from "react";
 
+
 class Navbar extends Component{
 
     render(){
         return (
             <>
-                <div style={styles.nav}>
+                {/* Using block level style */}
+                {/* <div style={styles.nav}>
                    <div>
                     Title
                    </div>
@@ -14,7 +16,7 @@ class Navbar extends Component{
                         <span>0</span>
                     
                     </div>
-                </div>
+                </div> */}
             </>
         )
     }
