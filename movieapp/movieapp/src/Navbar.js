@@ -5,7 +5,7 @@ class Navbar extends Component{
     render(){
         return (
             <>
-                <div style={{ width:"100%",height:70,backgroundColor:"#db2828",display:"flex",justifyContent:"space-around",color:'white'}}>
+                <div style={styles.nav}>
                    <div>
                     Title
                    </div>
@@ -23,3 +23,7 @@ class Navbar extends Component{
 
 
 export default Navbar;
+
+const styles = {
+    nav : { width:"100%",height:70,backgroundColor:"#db2828",display:"flex",justifyContent:"space-around",color:'white'}
+}
