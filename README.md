@@ -24,3 +24,8 @@ React Hooks
 Conditional Rendering
 Forms and Controlled Components
 Event Handling
+
+
+By default css has global scope say you have two div with same class lets say in one class you have changed the style and created 
+different file with different style for another div with same class name but It will change all the div in order to avoid this 
+"module css" comes into picture.
